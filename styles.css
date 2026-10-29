@@ -138,6 +138,8 @@ h3 { font-size: 18px; margin: 0 0 6px; line-height: 1.35; }
 
 .patent p:last-child { color: var(--muted); margin-bottom: 0; }
 
+.section-lead { color: var(--muted); margin: -8px 0 24px; max-width: 640px; }
+
 .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
 .contact p { color: var(--muted); margin: 0 0 20px; }
