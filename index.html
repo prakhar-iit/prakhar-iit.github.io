@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prakhar Rastogi</title>
+  <meta name="description" content="Prakhar Rastogi — Senior Member of Technical Staff at Oracle, building agent-orchestration systems, retrieval pipelines and LLM infrastructure." />
+  <meta property="og:title" content="Prakhar Rastogi" />
+  <meta property="og:description" content="Agent orchestration, retrieval and LLM infrastructure." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Apply saved theme before paint to avoid a flash.
+    try {
+      const t = localStorage.getItem("theme");
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="logo">PR</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#patents">Patents</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle color theme">◐</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <p class="eyebrow">Hi, I'm</p>
+      <h1>Prakhar Rastogi</h1>
+      <p class="lead">
+        I build <strong>LLM agent systems</strong> that do real work in production —
+        orchestration frameworks, retrieval pipelines and the infrastructure underneath them.
+        Currently a Senior Member of Technical Staff at <strong>Oracle</strong>.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn" href="https://github.com/prakhar-iit" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/prakhar-rastogi/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+    <section id="about" class="wrap section">
+      <h2>About</h2>
+      <div class="about-grid">
+        <div>
+          <p>
+            I'm a software engineer focused on agentic AI. At Oracle I architected and built
+            a Java/Spring <strong>agent-orchestration framework</strong> on OCI Generative AI that
+            lets LLM agents plan and run multi-step investigations across production logs, databases,
+            tickets and runbooks — now used daily by on-call engineers.
+          </p>
+          <p>
+            Before that I led 0-to-1 LLM product work at HiLabs, and spent three years on Oracle's
+            Fusion Analytics team building high-availability services, work that produced two granted
+            US patents (a third, on autonomous computing with GenAI, is pending). I hold an M.Eng. from Northwestern and a dual B.Tech/M.Tech from IIT (BHU) Varanasi.
+          </p>
+        </div>
+        <ul class="skills">
+          <li><span>Languages</span>Java · Python · SQL · Scala</li>
+          <li><span>AI / ML</span>Multi-agent systems · Tool use · Context engineering · LangChain · LangGraph · Claude SDK · MCP</li>
+          <li><span>Retrieval</span>RAG · Hybrid retrieval · Embeddings · Vector DBs · Oracle 23ai · Redis · Flink</li>
+          <li><span>Infra</span>OCI · Spring · Microservices · Kubernetes · Docker · CI/CD</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experience" class="wrap section">
+      <h2>Experience</h2>
+
+      <article class="job">
+        <div class="job-head">
+          <h3>Senior Member of Technical Staff · <span>Oracle</span></h3>
+          <p class="meta">Dec 2024 – Present · Pleasanton, CA</p>
+        </div>
+        <ul>
+          <li>Architected and built an <strong>agent-orchestration framework</strong> where agent runs are durable, checkpointed background jobs that survive host failure and resume mid-investigation.</li>
+          <li>Hybrid semantic + keyword <strong>tool retrieval</strong> over a large, growing action catalog, plus a structured scratchpad for long-horizon context management across sub-agents.</li>
+          <li>Shipped a <strong>multi-agent root-cause analysis</strong> system for on-call engineers, a natural-language data interface, and a cron-scheduled log monitor.</li>
+          <li>Built a <strong>LangChain agent harness</strong> for domain-specific agents that answer, troubleshoot and act through multi-step reasoning — with a <strong>tool gateway</strong> that discovers and executes tools across OCI services, microservices and databases, preloaded domain knowledge with advanced skills loaded on demand, human-in-the-loop approval and a card-based agentic UI.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <h3>AI Engineer · <span>HiLabs Inc.</span></h3>
+          <p class="meta">Jun 2023 – Dec 2024 · Bethesda, MD</p>
+        </div>
+        <ul>
+          <li>Led 0-to-1 development and beta launch of an LLM-powered provider-contract analysis platform, establishing a $1MM ARR opportunity.</li>
+          <li>Improved the core entity anomaly-detection algorithm to 95% accuracy through analysis of AI-generated output.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <h3>Member of Technical Staff · <span>Oracle</span></h3>
+          <p class="meta">Jul 2019 – Aug 2022 · Bengaluru, India · Analytics Rockstar Award, FY22 Q3</p>
+        </div>
+        <ul>
+          <li>Led 4 engineers on the failover path for a high-availability service — 99.99% availability, 98% less annual downtime.</li>
+          <li>Designed an auto-sync service reconciling roles and permissions across siloed apps, onboarding 70K users.</li>
+          <li>Built stateless session management in Java (+12% throughput) and 8+ reusable frameworks used by 15 developers.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="projects" class="wrap section">
+      <h2>Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <p class="tag">Complete · Phases 0–2</p>
+          <h3>Retrieval Stack Study</h3>
+          <p>
+            Benchmarked six retrieval methods — BM25, Word2Vec, sentence-transformers, Matryoshka
+            embeddings, hybrid fusion and cross-encoder reranking — on 20K arXiv abstracts with a
+            400-query eval set.
+          </p>
+          <ul class="stats">
+            <li><b>0.9885</b> nDCG@10 for hybrid fusion, best of all methods</li>
+            <li><b>8.5%</b> vs 12.4% loss truncating 768→64 dims (MRL vs control)</li>
+            <li><b>N<sup>1.3</sup></b> lexical vs N<sup>0.95</sup> vector search cost scaling</li>
+            <li><b>−0.7 pts</b> nDCG@10 from cross-encoder reranking at +3 s latency — no free lift near ceiling</li>
+          </ul>
+          <p class="stack">Python · sentence-transformers · Qdrant · rank_bm25</p>
+          <a class="link" href="https://github.com/prakhar-iit/rag-retrieval-benchmark" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+
+        <article class="card">
+          <p class="tag muted">In progress · repo private for now</p>
+          <h3>Mini LLM Inference Server</h3>
+          <p>
+            An LLM inference server I'm building from scratch one optimization at a time, each step
+            paired with a study that predicts, measures and explains its effect on latency and
+            throughput. Planned milestones run from KV caching and continuous batching through paged
+            attention and prefix caching, then go distributed: tensor parallelism, cache-aware routing, prefill/decode disaggregation
+            and multi-node MoE serving.
+          </p>
+          <p class="stack">Python · PyTorch · CUDA · OpenAI-compatible API</p>
+        </article>
+
+        <article class="card">
+          <p class="tag">2022</p>
+          <h3>Streaming n-gram Language Model</h3>
+          <p>
+            A next-word predictor built on Apache Flink's DataStream API: a socket word stream is
+            turned into overlapping n-grams with count windows, counted on the fly, and converted to
+            online maximum-likelihood probabilities that drive greedy five-word prediction.
+          </p>
+          <p class="stack">Scala · Apache Flink · Python</p>
+          <a class="link" href="https://github.com/prakhar-iit/refit-scala" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+      </div>
+
+      <h3 class="subhead">Earlier work</h3>
+      <ul class="more">
+        <li>
+          <a href="https://github.com/prakhar-iit/refit-kubernetes" target="_blank" rel="noopener">Flask microservices on Kubernetes</a>
+          <span>Two services wired with Deployments, Services, ConfigMap-driven config and cluster-DNS discovery · 2022</span>
+        </li>
+        <li>
+          <a href="https://github.com/prakhar-iit/LoadForecastingANN" target="_blank" rel="noopener">Electricity load forecasting with neural networks</a>
+          <span>ANN-based load forecasting with data generation, statistics and visualization · 2018</span>
+        </li>
+        <li>
+          <a href="https://github.com/prakhar-iit/SocGen" target="_blank" rel="noopener">Société Générale hackathon</a>
+          <span>Fraud detection on transaction data with scikit-learn · 2018</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="patents" class="wrap section">
+      <h2>Patents</h2>
+      <div class="cards">
+        <a class="card patent" href="https://patents.google.com/patent/US12547545B2" target="_blank" rel="noopener">
+          <p class="tag">Granted Feb 2026 · US12547545B2</p>
+          <h3>High availability using an in-memory cache as a database</h3>
+          <p>Health-polled database cutover, key-value cache reformatting, predictive pre-population and write-back reconciliation.</p>
+        </a>
+        <a class="card patent" href="https://patents.justia.com/patent/12675305" target="_blank" rel="noopener">
+          <p class="tag">Granted Jul 2026 · US12675305B1</p>
+          <h3>Contextual in-product help system</h3>
+          <p>Element-anchored walkthroughs plus a record mode that lets admins author guidance without engineering involvement.</p>
+        </a>
+        <div class="card patent">
+          <p class="tag muted">Patent pending · Filed Sep 2026</p>
+          <h3>Method to support autonomous computing using GenAI/LLM</h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="wrap section">
+      <h2>Education</h2>
+      <div class="edu">
+        <div><h3>Northwestern University</h3><p class="meta">M.Eng. · 2022–2023 · CGPA 3.9/4.0 · Albert H. Rubenstein Memorial Scholarship</p></div>
+        <div><h3>IIT (BHU) Varanasi</h3><p class="meta">B.Tech + M.Tech, Electrical Engineering · 2014–2019 · CGPA 3.92/4.0</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap section contact">
+      <h2>Get in touch</h2>
+      <p>I'm always happy to talk about agent systems, retrieval, or inference infrastructure.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:prakhar.r.rastogi@gmail.com">Email me</a>
+        <a class="btn" href="https://github.com/prakhar-iit" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/prakhar-rastogi/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© <span id="year"></span> Prakhar Rastogi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
