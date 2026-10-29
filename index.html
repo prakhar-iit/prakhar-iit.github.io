@@ -28,6 +28,7 @@
       <nav>
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
+        <a href="#oracle-work">Oracle work</a>
         <a href="#projects">Projects</a>
         <a href="#patents">Patents</a>
         <a href="#contact">Contact</a>
@@ -86,10 +87,9 @@
           <p class="meta">Dec 2024 – Present · Pleasanton, CA</p>
         </div>
         <ul>
-          <li>Architected and built an <strong>agent-orchestration framework</strong> where agent runs are durable, checkpointed background jobs that survive host failure and resume mid-investigation.</li>
-          <li>Hybrid semantic + keyword <strong>tool retrieval</strong> over a large, growing action catalog, plus a structured scratchpad for long-horizon context management across sub-agents.</li>
-          <li>Shipped a <strong>multi-agent root-cause analysis</strong> system for on-call engineers, a natural-language data interface, and a cron-scheduled log monitor.</li>
-          <li>Built a <strong>LangChain agent harness</strong> for domain-specific agents that answer, troubleshoot and act through multi-step reasoning — with a <strong>tool gateway</strong> that discovers and executes tools across OCI services, microservices and databases, preloaded domain knowledge with advanced skills loaded on demand, human-in-the-loop approval and a card-based agentic UI.</li>
+          <li>Architected and built a Java <strong>multi-agent framework</strong> for production investigations, and shipped a root-cause analysis system, a natural-language data interface and a scheduled log monitor on it.</li>
+          <li>Built a <strong>LangChain agent harness</strong> for customer-facing agents that answer, troubleshoot and act, with a tool gateway and human-in-the-loop approval.</li>
+          <li><a href="#oracle-work">How both systems work →</a></li>
         </ul>
       </article>
 
@@ -114,6 +114,63 @@
           <li>Designed an auto-sync service reconciling roles and permissions across siloed apps, onboarding 70K users.</li>
           <li>Built stateless session management in Java (+12% throughput) and 8+ reusable frameworks used by 15 developers.</li>
         </ul>
+      </article>
+    </section>
+
+    <section id="oracle-work" class="wrap section">
+      <h2>Oracle work</h2>
+
+      <article class="case">
+        <p class="tag">Production · Java</p>
+        <h3>Agent framework for production investigations</h3>
+        <p class="case-lead">
+          A multi-agent framework I architected and built in Java that lets LLM agents investigate
+          production issues the way an on-call engineer would: plan, gather evidence from logs, code,
+          tickets and databases, and report a root cause.
+        </p>
+        <h4>The problem</h4>
+        <p>
+          Debugging a data intelligence platform means piecing together evidence from many places:
+          service logs, databases, tickets, code and team runbooks. It's slow, it repeats, and much of
+          it follows known procedures. The goal was an agent system that can do this safely on live
+          infrastructure, inside the existing service's security and audit setup.
+        </p>
+        <h4>How it works</h4>
+        <ul>
+          <li><strong>Three agent levels.</strong> A lightweight router answers simple questions directly or fires tools in parallel. Harder questions go to a planner that runs a prebuilt workflow (root-cause analysis, issue triage, log analysis), which hands deep digging to a triage agent that loops over logs, code and diagnostic queries. Most questions are answered cheaply at the first level.</li>
+          <li><strong>Durable runs.</strong> Each investigation is a checkpointed background job, saved after every step. It survives a server crash and picks up where it left off, so long autonomous investigations can run unattended.</li>
+          <li><strong>Tool lookup instead of sending every tool.</strong> The catalog of diagnostic actions is large and growing. Hybrid semantic + keyword search on Oracle Database vector search gives the model only the few tools that fit each step, keeping long loops within the context budget as the catalog grows.</li>
+          <li><strong>A structured scratchpad.</strong> The triage agent keeps typed working notes (facts, evidence, event timeline, next actions) and passes only its conclusions back to the planner, not the full transcript.</li>
+          <li><strong>Skills and runbooks as searchable memory.</strong> Operating procedures are stored as reusable skills that the planner retrieves and assembles into plans, and that engineers can query directly for how-to answers.</li>
+          <li><strong>Safe and inspectable.</strong> Read-only by design. Every step, tool call and output is saved and shown in the UI, so engineers can see exactly how the agent reached its answer.</li>
+        </ul>
+        <h4>Built on it</h4>
+        <p>An autonomous multi-agent root-cause analysis system for on-call engineers, a natural-language interface for querying tickets, data and docs, and a scheduled monitor that scans service logs and routes exceptions to the owning team.</p>
+        <p class="stack">Java · Spring AI · OCI Generative AI · Oracle Database vector search · hybrid retrieval</p>
+      </article>
+
+      <article class="case">
+        <p class="tag">Customer-facing · LangChain</p>
+        <h3>Action agents with human-in-the-loop approval</h3>
+        <p class="case-lead">
+          Domain-specific agents that help customers find information, troubleshoot their own issues
+          and carry out multi-step actions, with a person signing off on actions.
+        </p>
+        <h4>The problem</h4>
+        <p>
+          Customers want an agent that can actually do things in their environment, not just answer
+          questions. Taking real actions on a customer's behalf needs tight control over which tools it
+          can use, how much it loads into context, and when a person has to approve.
+        </p>
+        <h4>How it works</h4>
+        <ul>
+          <li><strong>A custom agent harness on LangChain</strong> for domain-specific agents that reason through multi-step workflows to answer, troubleshoot and act.</li>
+          <li><strong>A tool gateway</strong> that discovers and runs tools (APIs and SQL) across cloud services, microservices and databases, so agents work through one controlled layer instead of separate integrations.</li>
+          <li><strong>Two levels of knowledge.</strong> Core domain knowledge is always loaded; deeper knowledge and skills load only when a task needs them, keeping context small.</li>
+          <li><strong>Human-in-the-loop approval.</strong> A policy sends agent actions to a person for approval, so customers can hand off real operations without losing oversight.</li>
+          <li><strong>A card-based agent interface.</strong> Agent output appears as structured cards instead of plain chat.</li>
+        </ul>
+        <p class="stack">LangChain · REST APIs · SQL</p>
       </article>
     </section>
 
