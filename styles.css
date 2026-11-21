@@ -138,6 +138,10 @@ h3 { font-size: 18px; margin: 0 0 6px; line-height: 1.35; }
 
 .patent p:last-child { color: var(--muted); margin-bottom: 0; }
 
+.page-hero { padding-bottom: 8px; }
+.page-hero .eyebrow a { color: inherit; }
+.nav nav a[aria-current="page"] { color: var(--text); }
+#links { padding-top: 24px; }
 #links .cards { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 
 .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
